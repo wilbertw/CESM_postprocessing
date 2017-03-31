@@ -166,5 +166,60 @@
     </components>
   </machine>
 
+  <machine name="wolf" hostname="wf-fe">
+    <timeseries_pes queue="regular" pes_per_node="16" wallclock="02:30:00">96</timeseries_pes>
+    <mpi_command>mpirun -n {{ pes }}</mpi_command>
+    <pythonpath></pythonpath>
+    <f2py fcompiler="gfortran" f77exec="/usr/bin/gfortran">f2py</f2py>
+    <za>
+      <compiler>ifort</compiler>
+      <flags>-c -g -O2</flags>
+      <include>-I/turquoise/usr/projects/climate/SHARED_CLIMATE/software/wolf/netcdf/4.4.0/intel-15.0.5/include</include>
+      <libs>-L/turquoise/usr/projects/climate/SHARED_CLIMATE/software/wolf/netcdf/4.4.0/intel-15.0.5/lib -lnetcdff -L/usr/projects/climate/SHARED_CLIMATE/software/wolf/hdf5/1.8.16/intel-15.0.5/lib -L/usr/projects/climate/SHARED_CLIMATE/software/wolf/netcdf/4.4.0/intel-15.0.5/lib -lnetcdf -lnetcdf</libs>
+    </za>
+    <project></project>
+    <reset_modules>
+      <module>source /usr/share/Modules/init/bash</module>
+      <module>module purge</module>
+    </reset_modules>
+    <modules>
+      <module>module load intel/15.0.5</module>
+      <module>module load openmpi/1.6.5</module>
+      <module>module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all</module>
+      <module>module load python/anaconda-2.7-cesm</module>
+      <module>module load nco/4.4.5</module>
+      <module>module load netcdf/4.4.0</module>
+      <module>module load hdf5/1.8.16</module>
+      <module>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/projects/climate/SHARED_CLIMATE/anaconda_envs/cesm-2.7/lib</module>
+      <module>export LD_PRELOAD='/usr/projects/hpcsoft/toss2/wolf/openmpi/1.6.5-intel-15.0.5/lib/libmpi.so'</module>
+    </modules>
+    <components>
+      <component name="atm">
+        <averages_pes queue="regular" pes_per_node="16" wallclock="00:30:00">128</averages_pes>
+        <diagnostics_pes queue="regular" pes_per_node="16" wallclock="02:00:00">32</diagnostics_pes>
+        <regrid_pes queue="regular" pes_per_node="16" wallclock="02:00:00">8</regrid_pes>
+        <obs_root>/turquoise/usr/projects/cesm/cesm_diagnostics/atm</obs_root>
+        <obs_root>/lustre/scratch3/turquoise/wilbert/CESM_DiagObs/amwg/obs_data</obs_root>
+      </component>
+      <component name="ice">
+        <averages_pes queue="regular" pes_per_node="16" wallclock="00:30:00">16</averages_pes>
+        <diagnostics_pes queue="regular" pes_per_node="16" wallclock="00:30:00">16</diagnostics_pes>
+        <obs_root>/lustre/scratch3/turquoise/wilbert/CESM_DiagObs/pcwg/data</obs_root>
+      </component>
+      <component name="lnd">
+        <averages_pes queue="regular" pes_per_node="16" wallclock="02:00:00">128</averages_pes>
+        <diagnostics_pes queue="regular" pes_per_node="16" wallclock="02:00:00">16</diagnostics_pes>
+        <regrid_pes queue="regular" pes_per_node="16" wallclock="02:00:00">8</regrid_pes>
+        <obs_root>/lustre/scratch3/turquoise/wilbert/CESM_DiagObs/lmwg/obs_data</obs_root>
+      </component>
+      <component name="ocn">
+        <averages_pes queue="regular" pes_per_node="16" wallclock="01:00:00">16</averages_pes>
+        <diagnostics_pes queue="regular" pes_per_node="16" wallclock="00:30:00">16</diagnostics_pes>
+        <obs_root>/lustre/scratch3/turquoise/wilbert/CESM_DiagObs/omwg/obs_data</obs_root>
+      </component>
+    </components>
+  </machine>
+
+
 </machine_postprocess>
 

@@ -1,0 +1,8 @@
+#MSUB -N {{ processName }}
+#MSUB -l procs={{ pes }}
+#MSUB -l walltime={{ wallclock }}
+#MSUB -A climatehilat
+#MSUB -o {{ processName }}.stdout
+#MSUB -e {{ processName }}.stderr
+
+source /usr/share/Modules/init/bash
