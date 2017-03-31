@@ -4,8 +4,8 @@
 
 FC = ifort
 FFLAGS = -c -g -O2
-INCLUDE = -I/glade/apps/opt/netcdf/4.2/intel/12.1.5/include
-LIBS = -L/glade/apps/opt/netcdf/4.2/intel/12.1.5/lib -lnetcdff -lnetcdf
+INCLUDE = -I/turquoise/usr/projects/climate/SHARED_CLIMATE/software/wolf/netcdf/4.4.0/intel-15.0.5/include
+LIBS = -L/turquoise/usr/projects/climate/SHARED_CLIMATE/software/wolf/netcdf/4.4.0/intel-15.0.5/lib -lnetcdff -L/usr/projects/climate/SHARED_CLIMATE/software/wolf/hdf5/1.8.16/intel-15.0.5/lib -L/usr/projects/climate/SHARED_CLIMATE/software/wolf/netcdf/4.4.0/intel-15.0.5/lib -lnetcdf -lnetcdf
 
 .SUFFIXES:            # Delete the default suffixes
 .SUFFIXES: .F .F90 .o # Define our suffix list
