@@ -380,7 +380,8 @@ def main(options, main_comm, debugMsg):
 
 ##                h_path = envDict['PATH_CONT']+'/ice/proc/tseries/monthly/'
                 # Check to see if tseries is split into hemispheres
-                split = checkIceSplit(envDict['ICE_NY_CONT'], envDict['cont_key_infile'])
+                # split = checkIceSplit(envDict['ICE_NY_CONT'], envDict['cont_key_infile'])
+                split = False
                 if split:
                     split_size = 'nj='+envDict['ICE_NY_CONT']+',ni='+envDict['ICE_NX_CONT']
             else:
@@ -418,7 +419,8 @@ def main(options, main_comm, debugMsg):
 
 ##                h_path = envDict['PATH_DIFF']+'/ice/proc/tseries/monthly/'
                 # Check to see if tseries is split into hemispheres
-                split = checkIceSplit(envDict['ICE_NY_DIFF'], envDict['diff_key_infile'])
+                # split = checkIceSplit(envDict['ICE_NY_DIFF'], envDict['diff_key_infile'])
+                split = False
                 if split:
                     split_size = 'nj='+envDict['ICE_NY_DIFF']+',ni='+envDict['ICE_NX_DIFF']
             else:

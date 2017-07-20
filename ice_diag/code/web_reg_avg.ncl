@@ -519,8 +519,8 @@ end if
       resb@trYMaxF = max((/max(y3),max(y3b)/))
       plot3 = gsn_csm_x2y2(wks1,x1,x2,y3,y3b,res,resb)
    else
-      res@trXMinF = min((/x1/))
-      res@trXMaxF = max((/x1/))
+      res@trXMinF := min((/x1/))
+      res@trXMaxF := max((/x1/))
       plot1 = gsn_csm_xy(wks1,x1,y1,res)
       plot2 = gsn_csm_xy(wks1,x1,y2,res)
       plot3 = gsn_csm_xy(wks1,x1,y3,res)
