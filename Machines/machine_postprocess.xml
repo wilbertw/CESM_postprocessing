@@ -195,25 +195,25 @@
     </modules>
     <components>
       <component name="atm">
-        <averages_pes queue="regular" pes_per_node="16" wallclock="00:30:00">128</averages_pes>
-        <diagnostics_pes queue="regular" pes_per_node="16" wallclock="02:00:00">32</diagnostics_pes>
-        <regrid_pes queue="regular" pes_per_node="16" wallclock="02:00:00">8</regrid_pes>
+        <averages_pes queue="low" pes_per_node="16" wallclock="00:30:00">128</averages_pes>
+        <diagnostics_pes queue="low" pes_per_node="16" wallclock="02:00:00">32</diagnostics_pes>
+        <regrid_pes queue="low" pes_per_node="16" wallclock="02:00:00">8</regrid_pes>
         <obs_root>/lustre/scratch3/turquoise/wilbert/CESM_DiagObs/amwg</obs_root>
       </component>
       <component name="ice">
-        <averages_pes queue="regular" pes_per_node="16" wallclock="00:30:00">16</averages_pes>
-        <diagnostics_pes queue="regular" pes_per_node="16" wallclock="00:30:00">16</diagnostics_pes>
+        <averages_pes queue="low" pes_per_node="16" wallclock="00:30:00">16</averages_pes>
+        <diagnostics_pes queue="low" pes_per_node="16" wallclock="00:30:00">16</diagnostics_pes>
         <obs_root>/lustre/scratch3/turquoise/wilbert/CESM_DiagObs/pcwg/data</obs_root>
       </component>
       <component name="lnd">
-        <averages_pes queue="regular" pes_per_node="16" wallclock="02:00:00">128</averages_pes>
-        <diagnostics_pes queue="regular" pes_per_node="16" wallclock="02:00:00">16</diagnostics_pes>
-        <regrid_pes queue="regular" pes_per_node="16" wallclock="02:00:00">8</regrid_pes>
+        <averages_pes queue="low" pes_per_node="16" wallclock="02:00:00">128</averages_pes>
+        <diagnostics_pes queue="low" pes_per_node="16" wallclock="02:00:00">16</diagnostics_pes>
+        <regrid_pes queue="low" pes_per_node="16" wallclock="02:00:00">8</regrid_pes>
         <obs_root>/lustre/scratch3/turquoise/wilbert/CESM_DiagObs/lmwg</obs_root>
       </component>
       <component name="ocn">
-        <averages_pes queue="regular" pes_per_node="16" wallclock="01:00:00">16</averages_pes>
-        <diagnostics_pes queue="regular" pes_per_node="16" wallclock="00:30:00">16</diagnostics_pes>
+        <averages_pes queue="low" pes_per_node="16" wallclock="01:00:00">16</averages_pes>
+        <diagnostics_pes queue="low" pes_per_node="16" wallclock="00:30:00">16</diagnostics_pes>
         <obs_root>/lustre/scratch3/turquoise/wilbert/CESM_DiagObs</obs_root>
       </component>
     </components>

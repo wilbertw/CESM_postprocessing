@@ -1,8 +1,9 @@
-#MSUB -N {{ processName }}
-#MSUB -l procs={{ pes }}
-#MSUB -l walltime={{ wallclock }}
-#MSUB -A climatehilat
-#MSUB -o {{ processName }}.stdout
-#MSUB -e {{ processName }}.stderr
+#SBATCH -J {{ processName }}
+#SBATCH -n {{ pes }}
+#SBATCH -t {{ wallclock }}
+#SBATCH -A climatehilat
+#SBATCH -o {{ processName }}.stdout
+#SBATCH -e {{ processName }}.stderr
+#SBATCH --qos {{ queue }}
 
 source /usr/share/Modules/init/bash
