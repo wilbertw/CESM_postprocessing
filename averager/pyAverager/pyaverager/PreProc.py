@@ -167,7 +167,6 @@ class PreProc(object):
 	    ave_descr,spec.prefix,outfile,spec.split,split_hem[regions['GIN']],spec.out_directory,main_comm,spec.ncformat,
 	    ave_t.average_types[ave_descr[0]]['months_to_average'][0],key,spec.clobber,int(spec.year0),int(spec.year1),ave_date,attributes,variables)
        
-
 	# If using time slice files, open all files now
         if (len(local_var_list) > 0):
 	    if (spec.hist_type == 'slice' and (spec.serial or not main_comm.is_manager())):
@@ -218,16 +217,20 @@ class PreProc(object):
 		        # Get month slice
 		        var_slice = rover.fetch_slice(hist_dict, year, m, get_var_name, file_dict)
                         lat,lon = var_slice.shape
-                        full_lat,full_lon = o_lat.shape
-                        if spec.split:
-                            fill = full_lat-lat
-                            missing_vals = np.zeros((fill,lon))
-                            var_slice = np.array(var_slice)
-                            var_slice[var_slice >= 1e+20] = 0 
-                            if regions[reg] == 1: 
-                                var_slice = np.concatenate((var_slice,missing_vals),axis=0)
-                            else:
-                                var_slice = np.concatenate((missing_vals,var_slice),axis=0)
+                        #ww:
+                        #ww:  This section is commented out for wolf
+                        #ww:
+                        #full_lat,full_lon = o_lat.shape
+                        #if spec.split:
+                        #    print("no spec.split")
+                        #    fill = full_lat-lat
+                        #    missing_vals = np.zeros((fill,lon))
+                        #    var_slice = np.array(var_slice)
+                        #    var_slice[var_slice >= 1e+20] = 0 
+                        #    if regions[reg] == 1: 
+                        #        var_slice = np.concatenate((var_slice,missing_vals),axis=0)
+                        #    else:
+                        #        var_slice = np.concatenate((missing_vals,var_slice),axis=0)
 
 		        # Get ai factor
 		        if ('ext' in var_name or 'ai' in var_name):
