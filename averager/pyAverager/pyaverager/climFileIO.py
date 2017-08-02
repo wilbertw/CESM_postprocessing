@@ -302,6 +302,9 @@ def create_var(var_name, typeCode, dimnames, attr, new_file):
     for ka,va in attr.items():
       if ka != 'scale_factor':
           setattr(temp,ka,va)
+      if ka == 'coordinates':
+#         print('Okay, coordinates is here...', temp.__dict__)
+          temp.coordinate=va # overwrite coordinates as coordinate
 
     return temp
 

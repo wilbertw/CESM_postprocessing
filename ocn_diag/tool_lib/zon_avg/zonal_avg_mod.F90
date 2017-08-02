@@ -591,7 +591,8 @@ module zonal_avg_mod
         do attnum = 1,natts
            att_name = ''
            call nf_inq_attname_wrap(in_ncid, in_varid, attnum, att_name, subname)
-           if (att_name == 'coordinates') cycle
+!          if (att_name == 'coordinates') cycle
+           if (att_name == 'coordinate') cycle
            call nf_copy_att_wrap(in_ncid, in_varid, trim(att_name), &
                 out_ncid, out_varid, subname)
         end do
@@ -695,7 +696,9 @@ module zonal_avg_mod
      if (vartype /= NF_DOUBLE .and. vartype /= NF_FLOAT) return
 
      att_text_val = ''
-     call nf_get_att_wrap(ncid, varid, 'coordinates', att_text_val, &
+!    call nf_get_att_wrap(ncid, varid, 'coordinates', att_text_val, &
+!         ALLOW=NF_ENOTATT, stat_out=stat)
+     call nf_get_att_wrap(ncid, varid, 'coordinate', att_text_val, &
           ALLOW=NF_ENOTATT, stat_out=stat)
      if (stat == NF_ENOTATT) return
      if (index(att_text_val, TLONG_name) == 0) return
