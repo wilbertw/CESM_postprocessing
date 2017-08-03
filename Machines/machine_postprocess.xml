@@ -167,7 +167,7 @@
   </machine>
 
   <machine name="wolf" hostname="wf-fe">
-    <timeseries_pes queue="regular" pes_per_node="16" wallclock="02:30:00">96</timeseries_pes>
+    <timeseries_pes queue="low" pes_per_node="16" wallclock="02:30:00">96</timeseries_pes>
     <mpi_command>mpirun -n {{ pes }}</mpi_command>
     <pythonpath></pythonpath>
     <f2py fcompiler="gfortran" f77exec="/usr/bin/gfortran">f2py</f2py>
